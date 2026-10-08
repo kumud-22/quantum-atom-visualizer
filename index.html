@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Atom Explorer</title>
+    <meta
+      name="description"
+      content="Interactive 3D quantum atom visualization with shells, orbitals, electron clouds, and quantum numbers."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar glass-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">Q</div>
+          <div>
+            <h1>Quantum Atom Explorer</h1>
+            <p>Modern quantum theory visualized in 3D</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="explain-button" class="primary-button">Explain This</button>
+          <button id="exhibition-toggle" class="secondary-button">Exhibition Mode</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="panel glass-panel left-panel">
+          <section class="widget">
+            <div class="section-header">
+              <h2>Element</h2>
+            </div>
+            <label class="label-block" for="element-select">Choose an element</label>
+            <select id="element-select"></select>
+            <div id="element-summary" class="stat-box"></div>
+          </section>
+
+          <section class="widget">
+            <div class="section-header">
+              <h2>Shells</h2>
+            </div>
+            <div id="shell-buttons" class="shell-grid"></div>
+            <div id="shell-details" class="info-box"></div>
+          </section>
+
+          <section class="widget">
+            <div class="section-header">
+              <h2>Subshells & Orbitals</h2>
+            </div>
+            <div id="subshell-tree" class="tree"></div>
+          </section>
+
+          <section class="widget">
+            <div class="section-header">
+              <h2>Quantum Numbers</h2>
+            </div>
+            <div id="quantum-panel" class="quantum-panel"></div>
+          </section>
+        </aside>
+
+        <main class="viewer-area">
+          <div id="viewer"></div>
+
+          <div class="viewer-toolbar glass-panel">
+            <div class="toggle-group">
+              <button class="toggle-button active" data-toggle="nucleus">Nucleus</button>
+              <button class="toggle-button active" data-toggle="shell">Shells</button>
+              <button class="toggle-button active" data-toggle="electronCloud">Cloud</button>
+              <button class="toggle-button active" data-toggle="orbital">Orbitals</button>
+              <button class="toggle-button active" data-toggle="labels">Labels</button>
+            </div>
+
+            <div class="control-group">
+              <button id="reset-camera" class="secondary-button">Reset View</button>
+              <button id="play-toggle" class="secondary-button">Pause</button>
+            </div>
+
+            <div class="control-group inline-range">
+              <label for="speed-control">Animation</label>
+              <input id="speed-control" type="range" min="0.2" max="3" step="0.1" value="1" />
+            </div>
+
+            <div class="control-group inline-range">
+              <label for="quality-select">Quality</label>
+              <select id="quality-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="tour-panel" class="tour-panel hidden glass-panel">
+            <div class="tour-header-row">
+              <h3 id="tour-step-title">Interactive Tour</h3>
+              <button id="tour-close" class="icon-button">×</button>
+            </div>
+            <p id="tour-step-text"></p>
+            <div class="progress-bar">
+              <span id="tour-progress-bar"></span>
+            </div>
+            <div class="tour-actions">
+              <button id="tour-prev" class="secondary-button">Previous</button>
+              <button id="tour-next" class="primary-button">Next</button>
+            </div>
+          </div>
+        </main>
+
+        <aside class="panel glass-panel right-panel">
+          <section class="widget">
+            <div class="section-header">
+              <h2>Electron Configuration</h2>
+            </div>
+            <div id="electron-config" class="config-box"></div>
+            <div id="shell-occupancy" class="shell-occupancy"></div>
+          </section>
+
+          <section class="widget">
+            <div class="section-header">
+              <h2>Core Ideas</h2>
+            </div>
+            <ul id="science-principles" class="principles-list"></ul>
+          </section>
+
+          <section class="widget">
+            <div class="section-header">
+              <h2>Explain This</h2>
+            </div>
+            <div id="explain-output" class="info-box explain-box"></div>
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
